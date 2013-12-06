@@ -1,6 +1,6 @@
 {
     "name": "tarioch/pheal-bundle",
-    "description": "Adds pheal support to your Symfony2 project",
+    "description": "Adds Pheal support to your Symfony2 project.",
     "keywords": ["Pheal", "PhealNG", "EVE Online", "EVE API"],
     "homepage": "https://github.com/tarioch/phealbundle",
     "type": "symfony-bundle",

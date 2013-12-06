@@ -43,3 +43,13 @@ class AppKernel extends Kernel
 }
 ```
 
+And you have to enable the annotation parsing for the bundle in your `config.yml`:
+
+```yml
+// app/config/config.yml
+// ...
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [TariochPhealBundle]
+```

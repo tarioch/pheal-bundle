@@ -1,8 +1,8 @@
 {
     "name": "tarioch/pheal-bundle",
     "description": "Adds Pheal support to your Symfony2 project.",
-    "keywords": ["Pheal", "PhealNG", "EVE Online", "EVE API"],
-    "homepage": "https://github.com/tarioch/phealbundle",
+    "keywords": ["Pheal", "PhealNG", "EVE Online", "EVE API", "Symfony"],
+    "homepage": "https://github.com/tarioch/pheal-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
@@ -12,7 +12,7 @@
         }
     ],
     "support": {
-	"issues": "https://github.com/tarioch/phealbundle/issues"
+	"issues": "https://github.com/tarioch/pheal-bundle/issues"
     },
     "require": {
         "php": ">=5.4.4",

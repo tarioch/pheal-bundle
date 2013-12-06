@@ -3,7 +3,7 @@
     "description": "Adds pheal support to your Symfony2 project",
     "keywords": ["Pheal", "PhealNG", "EVE Online", "EVE API"],
     "homepage": "https://github.com/tarioch/phealbundle",
-    "type": "symfony-bundle"
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {

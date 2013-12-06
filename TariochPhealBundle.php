@@ -1,6 +1,6 @@
 <?php
 
-namespace Tario\PhealBundle;
+namespace Tarioch\PhealBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

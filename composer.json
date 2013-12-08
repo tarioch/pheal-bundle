@@ -18,7 +18,7 @@
         "php": ">=5.4.4",
 	"symfony/framework-bundle": "2.3.*",
 	"jms/di-extra-bundle" : "1.4.*",
-	"3rdpartyeve/phealng" : "dev-master"
+	"3rdpartyeve/phealng" : "dev-master@dev"
     },
     "require-dev": {
 	"phpunit/phpunit" : "3.7.*",

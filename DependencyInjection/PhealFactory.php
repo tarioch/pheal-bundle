@@ -13,23 +13,21 @@ use Pheal\Cache\HashedNameFileStorage;
  */
 class PhealFactory
 {
-    private $kernel;
-
     /**
      * @DI\InjectParams({
-     * "kernel" = @DI\Inject("kernel")
+     * "kernel" = @DI\Inject("kernel"),
+     * "userAgent" = @DI\Inject("%tarioch.phealbundle.user_agent%")
      * })
      */
-    public function __construct(Kernel $kernel)
+    public function __construct(Kernel $kernel, $userAgent)
     {
-        $this->kernel = $kernel;
-        $this->configurePheal();
+        $this->configurePheal($kernel, $userAgent);
     }
 
-    private function configurePheal()
+    private function configurePheal(Kernel $kernel, $userAgent)
     {
         $config = Config::getInstance();
-        $cacheDir = $this->kernel->getCacheDir() . '/pheal/';
+        $cacheDir = $kernel->getCacheDir() . '/pheal/';
         if (!is_dir($cacheDir)) {
             if (false === @mkdir($cacheDir, 0777, true)) {
                 throw new \RuntimeException(sprintf('Could not create cache directory "%s".', $cacheDir));
@@ -37,6 +35,7 @@ class PhealFactory
         }
         $config->cache = new HashedNameFileStorage($cacheDir);
         $config->access = new StaticCheck();
+        $config->http_user_agent = $userAgent; 
     }
 
     /**

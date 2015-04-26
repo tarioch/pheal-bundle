@@ -1,7 +1,7 @@
 Pheal Bundle
 ============
 
-Copyright (C) 2013 by Patrick Ruckstuhl
+Copyright (C) 2013 - 2015 by Patrick Ruckstuhl
 All rights reserved.
 
 Symfony bundle for Pheal - EVE Online API Library

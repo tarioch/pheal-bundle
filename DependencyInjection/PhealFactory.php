@@ -7,6 +7,7 @@ use Pheal\Pheal;
 use Pheal\Core\Config;
 use Pheal\Access\StaticCheck;
 use Pheal\Cache\HashedNameFileStorage;
+use Pheal\RateLimiter\FileLockRateLimiter;
 
 /**
  * @DI\Service("tarioch.pheal.factory")
@@ -35,6 +36,7 @@ class PhealFactory
         }
         $config->cache = new HashedNameFileStorage($cacheDir);
         $config->access = new StaticCheck();
+        $config->rateLimiter = new FileLockRateLimiter($cacheDir);
         $config->http_user_agent = $userAgent; 
     }
 

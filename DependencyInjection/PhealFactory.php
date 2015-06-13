@@ -8,6 +8,8 @@ use Pheal\Core\Config;
 use Pheal\Access\StaticCheck;
 use Pheal\Cache\HashedNameFileStorage;
 use Pheal\RateLimiter\FileLockRateLimiter;
+use Pheal\Log\PsrLogger;
+use Psr\Log\LoggerInterface;
 
 /**
  * @DI\Service("tarioch.pheal.factory")
@@ -17,15 +19,16 @@ class PhealFactory
     /**
      * @DI\InjectParams({
      * "kernel" = @DI\Inject("kernel"),
-     * "userAgent" = @DI\Inject("%tarioch.phealbundle.user_agent%")
+     * "userAgent" = @DI\Inject("%tarioch.phealbundle.user_agent%"),
+     * "logger" = @DI\Inject("logger")
      * })
      */
-    public function __construct(Kernel $kernel, $userAgent)
+    public function __construct(Kernel $kernel, $userAgent, LoggerInterface $logger)
     {
-        $this->configurePheal($kernel, $userAgent);
+        $this->configurePheal($kernel, $userAgent, $logger);
     }
 
-    private function configurePheal(Kernel $kernel, $userAgent)
+    private function configurePheal(Kernel $kernel, $userAgent, LoggerInterface $logger)
     {
         $config = Config::getInstance();
         $cacheDir = $kernel->getCacheDir() . '/pheal/';
@@ -37,6 +40,7 @@ class PhealFactory
         $config->cache = new HashedNameFileStorage($cacheDir);
         $config->access = new StaticCheck();
         $config->rateLimiter = new FileLockRateLimiter($cacheDir);
+        $config->log = new PsrLogger($logger);
         $config->http_user_agent = $userAgent; 
     }
 
